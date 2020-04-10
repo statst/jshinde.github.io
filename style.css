@@ -1,0 +1,35 @@
+/* style all html elements */
+*{
+    background-color: ;
+}
+
+.quiz{
+    border-style: solid black;
+    width: 900px;
+    height: 600px;
+    align-content: center;
+    text-align: center;
+    margin: 0 Auto;
+    background-color: rgb(156, 226, 226);
+    justify-items: center;
+    padding: 10px 50px 50px 50px;
+}
+.start_quiz{
+    border-style: solid black;
+   align-items: center;
+   justify-items: center;
+   display: block;
+   margin: 0 Auto;
+}
+.submit{
+    border-style: solid black;
+   align-items: center;
+   justify-items: center;
+   display: block;
+   margin: 0 Auto;
+   background-color: rgb(250, 9, 9) ;
+   box-sizing: border-box;
+   width: 100px;
+   height: 30px;
+   text-size-adjust: 24px bold;
+}
