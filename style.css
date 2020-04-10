@@ -1,7 +1,8 @@
 /* style all html elements */
-/* *{
 
-} */
+/* *{ 
+ 
+ }  */
 
 .quiz{
     border-style: solid black;
@@ -10,7 +11,20 @@
     align-content: center;
     text-align: center;
     margin: 0 Auto;
-    background-color: rgb(156, 226, 226);
+    background-color: honeydew;;
+    /* rgb(156, 226, 226); */
+    justify-items: center;
+    padding: 10px 50px 50px 50px;
+}
+.css{
+    border-style: solid black;
+    width: 900px;
+    height: 600px;
+    align-content: center;
+    text-align: center;
+    margin: 0 Auto;
+    background-color: honeydew;;
+    /* rgb(156, 226, 226); */
     justify-items: center;
     padding: 10px 50px 50px 50px;
 }
@@ -20,6 +34,8 @@
    justify-items: center;
    display: block;
    margin: 0 Auto;
+   background-color: white;
+   font-size: 18px;
 }
 .submit{
     border-style: solid black;
@@ -32,4 +48,23 @@
    width: 100px;
    height: 30px;
    text-size-adjust: 24px bold;
+   font-size: 14px;
+}
+.html_quiz{
+   float: left;
+   background-color: white;
+   font-size: 16px;
+}
+.css_quiz{
+   float: left;
+   background-color: white;
+   font-size: 16px;
+}
+.javascript_quiz{
+    float: left;
+    background-color: white;
+    font-size: 16px;
+}
+h1{
+    color: rgb(49, 54, 42);
 }
