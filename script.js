@@ -1,67 +1,68 @@
 //create questions variable;
 const htmlQuestions = [
-	{
-		question:
-			'Q.1 What does HTML stand for?\n(a) Hypertool Markup Language\n(b)Hypertext Markup Language\n(c)Hyperlink Manipulation Language\n(d)Hypertext Manipulation Language',
-		answer: 'b'
-	},
-	{
-		question:
-			'Q.2 A set of characters that indicates start and end of HTML element is called_______\n(a)HTML\n(b)HTML tag\n(c)Header tag\n(d)Html element',
-		answer: 'd'
-	},
-	{
-		question:
-			'Q.3 Raw text, images and other elements included in a web page\n(a)HTML tag\n(b)Website content\n(c)Website structure\n(d)HTML element',
-		answer: 'b'
-	},
-	{
-		question:
-			'Q.4 A rule describing how to format a particular portion of a web page\n(a)Style\n(b)tag\n(c)Header\n(d)HTML',
-		answer: 'a'
-	},
-	{
-		question:
-			'Q.5 What is the correct HTML for adding a background color of yellow?\n(a)background-color: yellow\n(b)background-color: #FFFF00\n(c)a and b\n(d)None of the above',
-		answer: 'c'
-	}
-];
-//create 
-const html= document.querySelector('.html_quiz');
-html.addEventListener('click', handleHtmlQuiz);
-const quiz = document.querySelector('.quiz');
-function handleHtmlQuiz(){
-    let score = 0;
-    for (let i = 0; i < htmlQuestions.length; i++) {
-			const p = document.createElement('p');
-			// const li = document.createElement('li');
-			// const list = ul.appendChild(li);
-			let arr = '<pre>' + htmlQuestions[i].question + '\n' + '</pre>';
-			p.innerHTML = arr;
-			quiz.appendChild(p);
-			console.log(quiz.innerHTML);
-		}
-}1
-const cssQuestions = [
-	{
-		question:
-			'What does CSS stand for?\n(a)Creative Style Sheet\n(b)colored Style Sheet\n(c)Cascading Style Sheet\n(d)Content Style Sheet',
-		answer: 'b'
-	},
-	{
-		question:
-			'How to set style of a certain HTML element with id of “quiz”?\n(a).quiz{}\n(b).quiz()\n(c)#quiz{}(d)id.quiz{}',
-		answer: 'a'
-	},
-	{
-		question:
-			'Given a margin: 10px 20px 5px 15px Where does 5px value will assigned?\n(a)Top\n(b)Right\n(c)left\n(d)bottom',
-		answer: 'd'
-	},
-	{
-		question:
-			'How do you add comments in CSS?\n(a)// comment\n(b)/* comment\n(c)/* comment*/(d)<!—comment-->',
-		answer: 'c'
-	},
+	[
+		'Q.1 What does HTML stand for?',
+		'Hyper tool Markup Language',
+		'Hyper text Markup Language',
+		'Hyper link Manipulation Language',
+		'Hyper text Manipulation Language',
+		'b',
+	],
+	[
+		'Q.2 A set of characters that indicates start and end of HTML element is called?',
+		'HTML',
+		'HTML tag',
+		'Header tag',
+		'Html element',
+		'd',
+	],
+	[
+		'Q.3 Raw text, images and other elements included in a web page',
+		'HTML tag',
+		'Website content',
+		'Website structure',
+		'HTML element',
+	],
+	[ 	'Q.4 A rule describing how to format a particular portion of a web page is called?', 
+		'Style',
+		'tag',
+		'Header',
+     	'HTML',
+		 'a'],
+	[ 	'Q.5 What is the correct HTML for adding a background color of yellow?',
+		'background-color: yellow',
+		'background-color: #FFFF00',
+		'a and b',
+		'None of the above',
+		'c']
+	 
 
 ];
+
+//select a quiz button 
+const html= document.querySelector('.html_quiz');
+//add event listener
+const quiz = document.querySelector('.quiz');
+const quizID= document.querySelector('#quiz_id');
+ html.addEventListener('click', handleHtmlQuiz);
+//create a function to handle quiz and add radio button to each quiz option
+function handleHtmlQuiz(){
+	for (let i=0; i<htmlQuestions.length; i++){
+	console.log(htmlQuestions[i][0]);
+	const p = document.createElement('p');
+	let arr =  htmlQuestions[i][0] ;
+	p.innerHTML = arr;
+	quiz.appendChild(p);
+		for (let j=1; j<htmlQuestions.length; j++){
+		console.log(htmlQuestions[i][j]);
+		const p = document.createElement('p');
+		let arr1 =
+			"<input type='radio' name='question' value = 'letter' > " +
+			htmlQuestions[i][j];
+		p.innerHTML = arr1;
+		quiz.appendChild(p);
+		console.log(quiz.innerHTML);
+	}
+	}
+}
+handleHtmlQuiz();

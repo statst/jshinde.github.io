@@ -10,18 +10,22 @@
     <!-- create quiz heading -->
     <h1>Test your HTML, CSS and JavaScript knowledge</h1>
     <!-- create a div element for quiz and add start quiz button in it -->
-    <div class="container">
+    <!-- <div class="container"> -->
         <div class ="quiz">
+        <form>
+            <input id = "quiz_id" type='radio' name='question' value = 'letter'>
         <button class= "start_quiz">Start the quiz</button>
-        <button class="html_quiz">HTML</button>
+        <button class="html_quiz" >HTML</button>
         <button class="css_quiz">CSS</button>
         <button class="javascript_quiz">JavaScript</button>
-    </div>
-<form>
-    <!-- create a submit button to submit quiz -->
-    <button class="submit">Submit Quiz</button>
-    <div class="results"></div>
+   
     </form>
+    </div>
+
+    <!-- <button class="submit">Submit Quiz</button> -->
+    <div class="results"></div>
+ 
+    
     <script src="script.js"></script>
 </body>
 </html>
