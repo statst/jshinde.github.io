@@ -1,65 +1,49 @@
-/* style all html elements */
+* {
+	box-sizing: border-box;
+}
 
-.quiz{
-    border-color: black;
-    width: 900px;
-    height: 600px;
-    align-content: center;
-    text-align: center;
-    margin: 0 Auto;
-    /* background-color: honeydew;; */
-    /* rgb(156, 226, 226); */
-    justify-items: center;
-    padding: 10px 50px 50px 50px;
+body {
+	display: grid;
+	margin: 0;
+	padding: 1rem;
+	min-height: 100vh;
+	font-family: sans-serif;
 }
-.css{
-    border-color: black;
-    width: 100%;
-    height: 100%;
-    align-content: center;
-    text-align: center;
-    margin: 0 Auto;
-    background-color: honeydew;;
-    /* rgb(156, 226, 226); */
-    justify-items: center;
-    padding: 10px 50px 50px 50px;
+main {
+	display: grid;
+	grid-template-rows: repeat(6, 1fr);
+	height: 60vh;
+	align-items: center;
+	text-align: center;
 }
-.start_quiz{
-    border-color: black;
-   align-items: center;
-   justify-items: center;
-   display: block;
-   margin: 0 Auto;
-   background-color: white;
-   font-size: 18px;
+
+header {
+	background-color: lightgrey;
+	margin: -1rem -1rem 1rem;
+	display: grid;
+	align-items: center;
+	text-align: center;
+	padding: 1rem;
 }
-.submit{
-    border-color: black;
-   align-items: center;
-   justify-items: center;
-   display: block;
-   margin: 0 Auto;
-   background-color: rgb(250, 9, 9) ;
-   box-sizing: border-box;
-   width: 100px;
-   height: 30px;
-   font-size: 14px;
+
+button {
+	padding: 0.75rem 1rem;
+	font-size: 100%;
+	border: 0;
+	border-radius: 0.25rem;
+	background-color: lightseagreen;
+	color: white;
+	justify-self: center;
 }
-.html_quiz{
-   float: left;
-   background-color: white;
-   font-size: 16px;
+
+#time {
+	color: lightseagreen;
+	font-size: 2rem;
+	font-weight: bold;
 }
-.css_quiz{
-   float: left;
-   background-color: white;
-   font-size: 16px;
-}
-.javascript_quiz{
-    float: left;
-    background-color: white;
-    font-size: 16px;
-}
-h1{
-    color: rgb(49, 54, 42);
+
+label:hover {
+	color: lightseagreen;
+	cursor: pointer;
+	padding: 1rem 0;
 }

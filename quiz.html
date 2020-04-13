@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test your programming Knowledge</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div id = 'quiz' class= 'container'></div>
+        <h2 id="question">Enter your question here</h2>
+    </header>
+    <main>
+        <label class="choice"><input type="radio" name="choice" value='1' />
+            <span id="choice1">1</span>
+        </label>
+        <label class="choice"><input type="radio" name="choice" value='2' />
+            <span id="choice2">2</span>
+        </label>
+        <label class="choice"><input type="radio" name="choice" value='3' />
+            <span id="choice3">3</span>
+        </label>
+        <label class="choice"><input type="radio" name="choice" value='4' />
+            <span id="choice4">4</span>
+        </label>
+        <button id="nextButton" onClick="getNextQuestion();">Next</button>
+        <div id="time"> </div>
+        <div id="result" class="container result" style="display:none;"></div>
+    </main>
+   
+    <script src="quiz.js"></script>
+</body>
+
+</html>
