@@ -1,6 +1,6 @@
 let questions = [
 	{
-		question: ' What does HTML stand for?',
+		question: 'What is HTML?',
 		choice1: 'Hyper tool Markup Language',
 		choice2: 'Hyper text Markup Language',
 		choice3: 'Hyper link Manipulation Language',
@@ -15,10 +15,19 @@ let questions = [
 		choice3: 'Header tag',
 		choice4: 'Html element',
 		ans: '4',
-	},
+    },
+    {
+    	question:
+			'Which of the following sentence is true about Div tag?',
+		choice1: 'Div tag is a block-level element?',
+		choice2: 'HTML tag',
+		choice3: 'Header tag',
+		choice4: 'Html element',
+		ans: '4'
+}
 ];
 
-//set efault question index to zero
+//set default question index to zero
 let currentQuestion = 0;
 let container = document.getElementById('quiz');
 let question = document.getElementById('question');
@@ -45,35 +54,43 @@ function getQuestion(qIndex) {
 }
 //set default score to zero
 let score = 0;
+let answers=0;
 //create function to get nextQuestion
 function getNextQuestion() {
 	//select radio button
 	let selectedOption = document.querySelector('input[type=radio]:checked');
 	//define
 	let ans = selectedOption.value;
+	//define criteria to selected answer
 	if (questions[currentQuestion].ans === ans) {
+		alert('Your answer is correct');
 		score += 5;
+	}else
+	{
+alert('Your answer is wrong');
 	}
 	selectedOption.checked = false;
 	currentQuestion++;
 	if (questions[0] == questions.length - 1) {
 		nextButton.innerText = 'Done';
 	}
+	//display score at the end of the quiz
 	if (currentQuestion === questions.length) {
 		container.style.display = 'none';
 		result.style.display = 'block';
-		result.textContent = 'Your Score: ' + score;
+		result.textContent = 'Your Score is ' + score;
 		console.log(result.textContent);
-		return;
 	}
 	getQuestion(currentQuestion);
-}
-getQuestion(currentQuestion);
-//set-timer
-let seconds = 0;
-function timeLapse() {
-	seconds += 1;
-    document.getElementById('time').innerText = seconds.toString();
+	
 }
 
+
+getQuestion(currentQuestion);
+
+let seconds = 0;
+function timeLapse() {
+	seconds += 60;
+	    document.getElementById('time').innerText = seconds.toString();
+    }
 setInterval(timeLapse, 1000);
