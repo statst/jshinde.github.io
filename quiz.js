@@ -1,92 +1,174 @@
 let questions = [
 	{
+		question: 'Which language is used for styling web pages?',
+		option: ['CSS', 'HTML', 'JQuery', 'XML'],
+	},
+	{
 		question: 'What is HTML?',
-		choice1: 'Hyper tool Markup Language',
-		choice2: 'Hyper text Markup Language',
-		choice3: 'Hyper link Manipulation Language',
-		choice4: 'Hyper text Manipulation Language',
-		ans: '2',
+		option: [
+			'Hyper text Markup Language',
+			'Hyper tool Markup Language',
+			'Hyper link Manipulation Language',
+			'Hyper text Manipulation Language',
+		],
+	},
+	{
+		question: 'Which of the following sentence is true about Div tag?',
+		option: [
+			'A block-level element?',
+			'Defines a paragraph',
+			'Creates a line break',
+			'Styles a web page',
+		],
+	},
+	{
+		question: 'Which of the following sentence is true about Div tag?',
+		option: [
+			'Div tag is a block-level element?',
+			'Hyper tool Markup Language',
+			'Hyper link Manipulation Language',
+			'Hyper text Manipulation Language',
+		],
 	},
 	{
 		question:
-			'A set of characters that indicates start and end of HTML element is called?',
-		choice1: 'HTML',
-		choice2: 'HTML tag',
-		choice3: 'Header tag',
-		choice4: 'Html element',
-		ans: '4',
-    },
-    {
-    	question:
-			'Which of the following sentence is true about Div tag?',
-		choice1: 'Div tag is a block-level element?',
-		choice2: 'HTML tag',
-		choice3: 'Header tag',
-		choice4: 'Html element',
-		ans: '4'
-}
+			'What is the correct HTML for adding a background color of yellow?',
+		option: [
+			'<body style= "background-color: #FFFF00">',
+			'<body style= "background-color: #FFB6C1">',
+			'all of the above',
+			'none of the above',
+		],
+	},
+	{
+		question: 'How to set style of a certain HTML element with id of “quiz”?',
+		option: ['#quiz{}', '.quiz{}', '.quiz()', 'Id.quiz{}'],
+	},
+	{
+		question: 'How do you add comments in CSS?',
+		option: ['/* comment*/', '<!—comment-->', '// comment', '//comment'],
+	},
+	{
+		question:
+			'Given a margin: 10px 20px 5px 15px \n Where does 5px value will assigned?',
+		option: ['Bottom', 'Right', 'Left', 'Top'],
+	},
+	{
+		question:
+			'Which of the following attributes is used to add link to any element?',
+		option: ['href', 'Link', 'ref', 'li'],
+	},
+	{
+		question: 'Why is this keyword not preferred in JavaScript?',
+		option: [
+			'Functions should not access the global object',
+			'Highly memory consuming',
+			'Very inefficient to use',
+			'Functions should access the global objects',
+		],
+	},
+	{
+		question:
+			'Which method removes the last element from an array and returns that element?',
+		option: ['pop()', 'pop()', 'pop()', 'push()'],
+	},
+	{
+		question: 'The object has three object attributes namely ________',
+		option: [
+			'Prototype, class, object’s extensible flag',
+			' Prototype, class, objects’ parameters',
+			' Native object, Classes and Interfaces and Object’s extensible flag',
+			'lClass, parameters, object’s extensible flag',
+		],
+	},
+	{
+		question: 'JavaScript is interpreted by _________',
+		option: ['Client', 'Server', 'Object', 'None of the above'],
+	},
+	{
+		question: 'What is mean by "this" keyword in javascript?',
+		option: [
+			'It refers current object',
+			'It refers previous object',
+			'It is variable which contains value',
+			'None of the above',
+		],
+	},
+	{
+		question: 'A function with no return value is called______',
+		option: ['Procedures', 'Method', 'Static function', 'Dynamic function'],
+	},
 ];
 
-//set default question index to zero
-let currentQuestion = 0;
-let container = document.getElementById('quiz');
-let question = document.getElementById('question');
-var choice1 = document.getElementById('choice1');
-var choice2 = document.getElementById('choice2');
-var choice3 = document.getElementById('choice3');
-var choice4 = document.getElementById('choice4');
-let nextButton = document.getElementById('nextButton');
-var result = document.getElementById('result');
-//select a quiz button
-const startQuiz = document.querySelector('.start_quiz');
-//add event listener
-const quiz = document.querySelector('.quiz');
+//select quiz container
+let container = document.getElementById('quiz')
 
-//create a function to display questions
+// select question container
+const questionContainer = document.querySelector('#question');
+//select all radio buttons
+const selectedOption = Array.from(document.querySelectorAll('input[name=option]'));
 
-function getQuestion(qIndex) {
-	let ques = questions[qIndex];
-	question.innerText = ques.question;
-	choice1.innerText = ques.choice1;
-	choice2.innerText = ques.choice2;
-	choice3.innerText = ques.choice3;
-	choice4.innerText = ques.choice4;
+//select next button
+const nextButton = document.querySelector('.next');
+
+//select result container
+let result = document.getElementById('result');
+
+//set default index of zero for question
+let currentQuestionIndex = 0;
+//set default index of zero for answer
+let answer = 0;
+let score =0; 
+let body = document.querySelector('body');
+
+//write a function to display questions
+function getQuestion() {
+	// define a variable that selects random options
+	const answers = questions[currentQuestionIndex].option;
+	// for each input display questions
+	questionContainer.textContent = currentQuestionIndex + 1 + '. '+ questions[currentQuestionIndex].question;
+	selectedOption.forEach(function (input, i) {
+		// Set radio button check value  
+		input.value = answers[i];
+//reset value
+		input.checked = false;
+		// Display the options text
+		let ansContainer= input.nextElementSibling;
+		ansContainer.textContent = answers[i];
+	});
 }
-//set default score to zero
-let score = 0;
-let answers=0;
-//create function to get nextQuestion
-function getNextQuestion() {
-	//select radio button
-	let selectedOption = document.querySelector('input[type=radio]:checked');
-	//define
-	let ans = selectedOption.value;
-	//define criteria to selected answer
-	if (questions[currentQuestion].ans === ans) {
-		alert('Your answer is correct');
-		score += 5;
-	}else
-	{
-alert('Your answer is wrong');
-	}
-	selectedOption.checked = false;
-	currentQuestion++;
-	if (questions[0] == questions.length - 1) {
-		nextButton.innerText = 'Done';
-	}
-	//display score at the end of the quiz
-	if (currentQuestion === questions.length) {
-		container.style.display = 'none';
-		result.style.display = 'block';
-		result.textContent = 'Your Score is ' + score;
-		console.log(result.textContent);
-	}
-	getQuestion(currentQuestion);
-	
-}
+getQuestion();
 
+//add EventListener to next button
+nextButton.addEventListener('click', handleNextQuestion);
+function handleNextQuestion() {
+	// provide condition to correct answer
+	let selectAnswer = document.querySelector('input[type=radio]:checked');
+	let ans = selectAnswer.value;
+	// update number of correctly answered questions:
+	if (ans == questions[currentQuestionIndex].option[0]){
+score += 5;
+alert('correct answer');
+console.log(ans, questions[currentQuestionIndex].option[0]);
+	}
+	else{
+		alert('answer is wrong');
+		console.log(ans, questions[currentQuestionIndex].option[0]);
+	}
+	// answer++;
+	// next question
+	currentQuestionIndex++;
+if (currentQuestionIndex >= questions.length) {
+		//display score
+		body.innerHTML = 'Your Score:'+ score;
+			// restart
+			currentQuestionIndex = 0;
+		answer = 0;
+		}
 
-getQuestion(currentQuestion);
+getQuestion();
+	}
+
 
 let seconds = 0;
 function timeLapse() {
