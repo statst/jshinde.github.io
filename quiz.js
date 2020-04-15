@@ -22,13 +22,9 @@ let questions = [
 		],
 	},
 	{
-		question: 'Which of the following sentence is true about Div tag?',
-		option: [
-			'Div tag is a block-level element?',
-			'Hyper tool Markup Language',
-			'Hyper link Manipulation Language',
-			'Hyper text Manipulation Language',
-		],
+		question:
+			' Which of the following property sets the shadow for a box element?',
+		option: ['box-shadow', 'set-shadow', 'canvas-shadow', 'shadow'],
 	},
 	{
 		question:
@@ -101,12 +97,14 @@ let questions = [
 ];
 
 //select quiz container
-let container = document.getElementById('quiz')
+let container = document.getElementById('quiz');
 
 // select question container
 const questionContainer = document.querySelector('#question');
 //select all radio buttons
-const selectedOption = Array.from(document.querySelectorAll('input[name=option]'));
+const selectedOption = Array.from(
+	document.querySelectorAll('input[name=option]')
+);
 
 //select next button
 const nextButton = document.querySelector('.next');
@@ -118,7 +116,7 @@ let result = document.getElementById('result');
 let currentQuestionIndex = 0;
 //set default index of zero for answer
 let answer = 0;
-let score =0; 
+let score = 0;
 let body = document.querySelector('body');
 
 //write a function to display questions
@@ -126,14 +124,16 @@ function getQuestion() {
 	// define a variable that selects random options
 	const answers = questions[currentQuestionIndex].option;
 	// for each input display questions
-	questionContainer.textContent = currentQuestionIndex + 1 + '. '+ questions[currentQuestionIndex].question;
+	questionContainer.textContent =
+		currentQuestionIndex + 1 + '. ' + questions[currentQuestionIndex].question;
+	console.log(questionContainer.textContent);
 	selectedOption.forEach(function (input, i) {
-		// Set radio button check value  
+		// Set radio button check value
 		input.value = answers[i];
-//reset value
+		//reset value
 		input.checked = false;
 		// Display the options text
-		let ansContainer= input.nextElementSibling;
+		let ansContainer = input.nextElementSibling;
 		ansContainer.textContent = answers[i];
 	});
 }
@@ -146,33 +146,47 @@ function handleNextQuestion() {
 	let selectAnswer = document.querySelector('input[type=radio]:checked');
 	let ans = selectAnswer.value;
 	// update number of correctly answered questions:
-	if (ans == questions[currentQuestionIndex].option[0]){
-score += 5;
-alert('correct answer');
-console.log(ans, questions[currentQuestionIndex].option[0]);
-	}
-	else{
+	result.innerHTML = '';
+	if (ans == questions[currentQuestionIndex].option[0]) {
+		score += 5;
+		alert('correct answer');
+		console.log(ans, questions[currentQuestionIndex].option[0]);
+	} else {
 		alert('answer is wrong');
+		let incorrectMessage = document.createElement('P');
+		incorrectMessage.innerText = 'answer is wrong';
+
+		document.getElementById('result').appendChild(incorrectMessage);
 		console.log(ans, questions[currentQuestionIndex].option[0]);
 	}
-	// answer++;
 	// next question
 	currentQuestionIndex++;
-if (currentQuestionIndex >= questions.length) {
+	if (currentQuestionIndex >= questions.length) {
 		//display score
-		body.innerHTML = 'Your Score:'+ score;
-			// restart
-			currentQuestionIndex = 0;
+		body.innerHTML = 'Well Done! Your Score:' + score;
+		// restart
+		currentQuestionIndex = 0;
 		answer = 0;
-		}
-
-getQuestion();
 	}
-
-
-let seconds = 0;
-function timeLapse() {
-	seconds += 60;
-	    document.getElementById('time').innerText = seconds.toString();
-    }
-setInterval(timeLapse, 1000);
+	result.innerHTML = 'Score: ' + score;
+	getQuestion();
+}
+//set time for quiz to 10 minutes
+let time = 10;
+//convert time to seconds
+let second = parseInt(time * 60);
+//setInterval
+setInterval(displayTimer, 1000);
+//function o display timer
+function displayTimer() {
+	//select timer dive to display time
+	document.getElementById('time').innerHTML =
+		'Time Left: ' + time + ' min ' + second;
+	//minimize time
+	second--;
+	//condition to stop timer
+	if (time === 0) {
+		clearInterval(interval);
+		document.getElementById('time').innerHTML = 'Time is Up!';
+	}
+}
