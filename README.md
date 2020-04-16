@@ -1,10 +1,18 @@
 # Self-scoring-Trivia
 Check your HTML, CSS and JavaScript knowledge
 
-Description
+**Description**
 
 This project is designed to test user's programming Knowledge. This app contains five questions on each HTML, CSS and JavaScript. Each question is worth five points.
-User Stories
+
+**Example**
+
+This is what app looks like
+
+![](ss/Snip20200415_4.png)
+
+
+**User Stories**
 
 •When user enters a website, it should contain information about quiz and start button to navigate to quiz.
 
@@ -28,12 +36,15 @@ List of Technologies Used
 
 •	VSCode editor is used to build this app.
 
-Installation Instructions
+**Installation Instructions**
+
 To set up app locally on your system
 1. fork and clone this repository
 2. Install VsCode locally and ensure it is running.
 3. Lastly, startup your server using live server option in VSCode.
 
-Contribute
+**Contribute**
 
-•	Source code: https://github.com/statst/Self-scoring-Trivia/tree/practice
+**Source code**: https://github.com/statst/Self-scoring-Trivia/tree/practice
+
+**Link to play game**: https://statst.github.io/index.html
