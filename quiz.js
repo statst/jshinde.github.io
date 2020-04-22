@@ -113,7 +113,7 @@ const nextButton = document.querySelector('.next');
 let result = document.getElementById('result');
 
 //set default index of zero for question
-let currentQuestionIndex = 0;
+let currentQuestionIndex = 0;       
 //set default index of zero for answer
 let answer = 0;
 let score = 0;
@@ -172,9 +172,9 @@ function handleNextQuestion() {
 	getQuestion();
 }
 //set time for quiz to 10 minutes
-let time = 10;
+let second = 10;
 //convert time to seconds
-let second = parseInt(time * 60);
+let time = parseInt(second / 60);
 //setInterval
 setInterval(displayTimer, 1000);
 //function o display timer
