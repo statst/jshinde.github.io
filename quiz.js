@@ -111,7 +111,8 @@ const nextButton = document.querySelector('.next');
 
 //select result container
 let result = document.getElementById('result');
-
+//select message
+let message = document.getElementById('message')
 //set default index of zero for question
 let currentQuestionIndex = 0;       
 //set default index of zero for answer
@@ -146,31 +147,37 @@ function handleNextQuestion() {
 	let selectAnswer = document.querySelector('input[type=radio]:checked');
 	let ans = selectAnswer.value;
 	// update number of correctly answered questions:
-	result.innerHTML = '';
+	// result.innerHTML = 'Score' + Score;
 	if (ans == questions[currentQuestionIndex].option[0]) {
 		score += 5;
-		alert('correct answer');
-		console.log(ans, questions[currentQuestionIndex].option[0]);
+		// alert('correct answer');
+		message.innerText = 'Great Job! Your Answer is correct';
 	} else {
-		alert('answer is wrong');
-		let incorrectMessage = document.createElement('P');
-		incorrectMessage.innerText = 'answer is wrong';
-
-		document.getElementById('result').appendChild(incorrectMessage);
-		console.log(ans, questions[currentQuestionIndex].option[0]);
+		// alert('answer is wrong');
+		message.innerText = 'Oops! Your answer is wrong';
+		
 	}
 	// next question
 	currentQuestionIndex++;
 	if (currentQuestionIndex >= questions.length) {
 		//display score
-		body.innerHTML = 'Well Done! Your Score:' + score;
+		result.innerHTML = 'Well Done! Your Score:' + score;
 		// restart
-		currentQuestionIndex = 0;
-		answer = 0;
+		// currentQuestionIndex = 0;
+		// answer = 0;
 	}
-	result.innerHTML = 'Score: ' + score;
+	result.innerHTML = 'Your Score: ' + score;
 	getQuestion();
 }
+var fullReset = document.getElementById('fullReset');
+
+fullReset.addEventListener(
+	'click',
+	function (e) {
+		location.reload();
+	},
+	false
+);
 //set time for quiz to 10 minutes
 // let second = 10;
 // //convert time to seconds
