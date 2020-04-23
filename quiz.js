@@ -172,21 +172,21 @@ function handleNextQuestion() {
 	getQuestion();
 }
 //set time for quiz to 10 minutes
-let second = 10;
-//convert time to seconds
-let time = parseInt(second / 60);
-//setInterval
-setInterval(displayTimer, 1000);
-//function o display timer
-function displayTimer() {
-	//select timer dive to display time
-	document.getElementById('time').innerHTML =
-		'Time Left: ' + time + ' min ' + second;
-	//minimize time
-	second--;
-	//condition to stop timer
-	if (time === 0) {
-		clearInterval(interval);
-		document.getElementById('time').innerHTML = 'Time is Up!';
-	}
-}
+// let second = 10;
+// //convert time to seconds
+// let time = parseInt(second / 60);
+// //setInterval
+// setInterval(displayTimer, 1000);
+// //function o display timer
+// function displayTimer() {
+// 	//select timer dive to display time
+// 	document.getElementById('time').innerHTML =
+// 		'Time Left: ' + time + ' min ' + second;
+// 	//minimize time
+// 	second--;
+// 	//condition to stop timer
+// 	if (time === 0) {
+// 		clearInterval(interval);
+// 		document.getElementById('time').innerHTML = 'Time is Up!';
+// 	}
+// }
