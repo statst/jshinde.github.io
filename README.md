@@ -9,7 +9,7 @@ This project is designed to test user's programming Knowledge. This app contains
 
 This is what app looks like
 
-![](ss/Snip20200415_4.png)
+![](ss/Snip20200415_22.png)
 
 
 **User Stories**
@@ -47,4 +47,3 @@ To set up app locally on your system
 
 **Source code**: https://github.com/statst/Self-scoring-Trivia/tree/practice
 
-**Link to play game**: https://statst.github.io/index.html
