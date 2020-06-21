@@ -47,4 +47,3 @@ To set up app locally on your system
 
 **Source code**: https://github.com/statst/Self-scoring-Trivia/tree/practice
 
-**Link to play game**: https://statst.github.io/index.html
