@@ -9,7 +9,7 @@ This project is designed to test user's programming Knowledge. This app contains
 
 This is what app looks like
 
-![](ss/Snip20200415_4.png)
+![](ss/Snip20200415_22.png)
 
 
 **User Stories**
