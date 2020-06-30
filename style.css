@@ -167,6 +167,9 @@ body {
 	display: inline-block;
 }
 
+.link{
+	margin-top: 55rem;
+}
 @media screen and (max-width: 760px){
 	.right{
 		width: 100%
