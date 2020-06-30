@@ -111,15 +111,15 @@ const nextButton = document.querySelector('.next');
 
 //select result container
 let result = document.getElementById('result');
-//select message
-let message = document.getElementById('message')
+
 //set default index of zero for question
-let currentQuestionIndex = 0;       
+let currentQuestionIndex = 0;
 //set default index of zero for answer
 let answer = 0;
 let score = 0;
 let body = document.querySelector('body');
-
+//select message
+let message = document.getElementById('message');
 //write a function to display questions
 function getQuestion() {
 	// define a variable that selects random options
@@ -147,7 +147,7 @@ function handleNextQuestion() {
 	let selectAnswer = document.querySelector('input[type=radio]:checked');
 	let ans = selectAnswer.value;
 	// update number of correctly answered questions:
-	// result.innerHTML = 'Score' + Score;
+	// result.innerHTML = 'Score: ' + score;
 	if (ans == questions[currentQuestionIndex].option[0]) {
 		score += 5;
 		// alert('correct answer');
@@ -155,45 +155,35 @@ function handleNextQuestion() {
 	} else {
 		// alert('answer is wrong');
 		message.innerText = 'Oops! Your answer is wrong';
-		
 	}
 	// next question
 	currentQuestionIndex++;
 	if (currentQuestionIndex >= questions.length) {
 		//display score
-		result.innerHTML = 'Well Done! Your Score:' + score;
+		body.innerHTML = 'Well Done! Your Score:' + score;
 		// restart
-		// currentQuestionIndex = 0;
-		// answer = 0;
+		currentQuestionIndex = 0;
+		answer = 0;
 	}
-	result.innerHTML = 'Your Score: ' + score;
+	result.innerHTML = 'Score: ' + score;
 	getQuestion();
 }
-var fullReset = document.getElementById('fullReset');
-
-fullReset.addEventListener(
-	'click',
-	function (e) {
-		location.reload();
-	},
-	false
-);
 //set time for quiz to 10 minutes
-// let second = 10;
-// //convert time to seconds
-// let time = parseInt(second / 60);
-// //setInterval
-// setInterval(displayTimer, 1000);
-// //function o display timer
-// function displayTimer() {
-// 	//select timer dive to display time
-// 	document.getElementById('time').innerHTML =
-// 		'Time Left: ' + time + ' min ' + second;
-// 	//minimize time
-// 	second--;
-// 	//condition to stop timer
-// 	if (time === 0) {
-// 		clearInterval(interval);
-// 		document.getElementById('time').innerHTML = 'Time is Up!';
-// 	}
-// }
+let time = 10;
+//convert time to seconds
+let second = parseInt(time * 60);
+//setInterval
+setInterval(displayTimer, 1000);
+//function o display timer
+function displayTimer() {
+	//select timer dive to display time
+	document.getElementById('time').innerHTML =
+		'Time Left: ' + time + ' min ' + second;
+	//minimize time
+	second--;
+	//condition to stop timer
+	if (time === 0) {
+		clearInterval(interval);
+		document.getElementById('time').innerHTML = 'Time is Up!';
+	}
+}
