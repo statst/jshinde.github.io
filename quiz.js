@@ -66,7 +66,7 @@ let questions = [
 	{
 		question:
 			'Which method removes the last element from an array and returns that element?',
-		option: ['pop()', 'pop()', 'pop()', 'push()'],
+		option: ['pop()', 'shift()', 'option 1 & 2', 'push()'],
 	},
 	{
 		question: 'The object has three object attributes namely ________',

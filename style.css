@@ -17,10 +17,13 @@ body {
 
 .container{
 	width: 940px;
-	background-color: #fff;
+    background-color: rgb(243, 243, 234);
 	border-radius: 10px;
 	display: flex;
-	background-color: rgb(243, 243, 234);
+	/* background-color: rgb(87, 170, 190); */
+	width: 78rem;
+	height: 15rem;
+	margin-bottom: 10px;
 }
 
 .left,
@@ -176,7 +179,7 @@ body {
 	}
 	.container
 	.box{
-		width: 425px;
+		width: 80rem;;
 	}
 	.option{
 		grid-template-columns: 1fr;
